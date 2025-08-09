@@ -1,10 +1,6 @@
-import logging
 from abc import ABC, abstractmethod
 from typing import Union
-
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+from logger import logger
 
 
 class Vehicle(ABC):
@@ -20,7 +16,7 @@ class Car(Vehicle):
         self.spec = spec
 
     def start_engine(self) -> None:
-        logging.info(f"{self.make} {self.model} {self.spec}: Двигун запущено")
+        logger.info(f"{self.make} {self.model} {self.spec}: Двигун запущено")
 
 
 class Motorcycle(Vehicle):
@@ -30,7 +26,7 @@ class Motorcycle(Vehicle):
         self.spec = spec
 
     def start_engine(self) -> None:
-        logging.info(f"{self.make} {self.model} {self.spec}: Мотор заведено")
+        logger.info(f"{self.make} {self.model} {self.spec}: Мотор заведено")
 
 
 class VehicleFactory(ABC):
